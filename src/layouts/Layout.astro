@@ -1,0 +1,146 @@
+---
+import SmokeBackground from "@/components/SmokeBackground.astro"
+import "@fontsource-variable/jost"
+
+interface Props {
+	description: string
+	title: string
+}
+
+const { title, description } = Astro.props
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<title>{title}</title>
+
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+
+		<link rel="icon" href="/favicon.png" sizes="32x32">
+		<link rel="apple-touch-icon" href="/favicon.png">
+		<link rel="canonical" href="" />
+		<meta name="viewport" content="width=device-width" />
+
+		<meta name="keywords" content="Psy-Electronics" />
+
+		<meta name="robots" content="index, follow" />
+		<meta name="googlebot" content="index, follow" />
+
+		<script is:inline>
+			window.getThemePreference = () => {
+				const localItem = typeof localStorage !== "undefined" && localStorage.getItem("theme")
+				if (localItem) return localItem
+				return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+			}
+
+			const isDark = window.getThemePreference() === "dark"
+			document.documentElement.classList.toggle("dark", isDark)
+		</script>
+	</head>
+
+	<body
+		class="[&_:focus-visible]:outline-none [&_:focus-visible]:ring-2 [&_:focus-visible]:ring-primary md:items-center md:text-center"
+	>
+		<SmokeBackground />
+		<div class="mx-auto px-5 lg:px-0" style="padding-right: 0;">
+			<slot />
+		</div>
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--color-primary: #000000;
+		--color-secondary: #ddd;
+
+		--background-color: var(--color-secondary);
+		--background-image: var(--background-color) url("/concrete.webp") repeat;
+	}
+
+	.dark {
+		--color-primary: #ddd;
+		--color-secondary: #333;
+
+		--background-image: var(--background-color) url("/concrete-dark.webp") repeat;
+	}
+
+	html {
+		font-family: "Jost Variable", system-ui, sans-serif;
+		background: var(--background-image);
+		scroll-behavior: smooth;
+		overflow-x: hidden;
+		overscroll-behavior: none;
+		
+	}
+	body {
+    
+	}
+
+	/* Hiding class, making content visible only to screen readers but not visually */
+	/* "sr" meaning "screen-reader" */
+	.sr-only:not(:focus):not(:active) {
+		clip: rect(0 0 0 0);
+		clip-path: inset(50%);
+		height: 1px;
+		overflow: hidden;
+		position: absolute;
+		white-space: nowrap;
+		width: 1px;
+	}
+
+	::-webkit-scrollbar {
+		width: 10px;
+		border-radius: 10px;
+	}
+
+	::-webkit-scrollbar-thumb {
+		border-radius: 10px;
+		background-color: theme("colors.primary");
+		border: 2px solid transparent;
+		background-clip: content-box;
+	}
+
+	::-webkit-scrollbar-track {
+		background: var(--background-image);
+	}
+
+	::-webkit-scrollbar-corner {
+		background: var(--background-image);
+	}
+	
+
+
+.navigation-card {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  background-color: rgb(255, 255, 255);
+  padding: 15px 20px;
+  border-radius: 60px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  
+  background-color: rgb(252, 252, 252);
+  padding: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.tab:hover {
+  background-color: rgb(223, 223, 223);
+}
+
+</style>

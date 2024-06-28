@@ -1,0 +1,61 @@
+---
+import ThemeToggle from "@/components/ThemeToggle.astro"
+
+import GithubIcon from "@/icons/github.astro"
+import LinkedinIcon from "@/icons/linkedin.astro"
+
+---
+
+
+<footer
+	class="mt-20 flex w-full flex-col place-items-center border-t-2 border-primary pb-20 pt-6 md:flex-row md:justify-around"
+>
+	<a href="https://github.com/xtwgok3"
+		><span class="text-center text-primary color bg-red-600">
+			&copy; 2024 Developer GitHub <span aria-hidden="true" class="hidden md:inline">|</span><br
+				aria-hidden="true"
+				class="block md:hidden"
+			/> All rights reserved.
+		</span></a
+	>
+
+
+	<nav>
+		<ul
+			class="flex flex-row items-center gap-x-6"
+			aria-label="redes sociales y botón para alternar tema"
+		>
+			<li>
+				<a
+					target="_blank"
+					rel="noopener"
+					aria-label="GitHub"
+					href="https://github.com/xtwgok3/"
+					class="inline-block any-hover:scale-125 any-hover:opacity-70 motion-safe:transition motion-reduce:any-hover:scale-100"
+				>
+					<GithubIcon
+						class="text-primary transition-colors duration-300 hover:text-accent motion-reduce:duration-0"
+					/>
+				</a>
+			</li>
+			
+			<li>
+				<a
+					target="_blank"
+					rel="noopener"
+					aria-label="Linkedin"
+					href="https://www.linkedin.com/in/carlos-alderete-806409274/"
+					class="inline-block any-hover:scale-125 any-hover:opacity-70 motion-safe:transition motion-reduce:any-hover:scale-100"
+				>
+					<LinkedinIcon
+						class="text-primary transition-colors duration-300 hover:text-accent motion-reduce:duration-0"
+					/>
+				</a>
+			</li>
+			
+			<li>
+				<ThemeToggle />
+			</li>
+		</ul>
+	</nav>
+</footer>
