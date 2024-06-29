@@ -43,7 +43,7 @@
 
     if (pdfLink) {
         const currentURL = window.location.href;
-        const number = currentURL.substr(currentURL.lastIndexOf('/') - 1) as keyof typeof fileNames;
+        const number = currentURL.substr(currentURL.lastIndexOf('/') - 2) as keyof typeof fileNames;
 
         if (fileNames[number]) {
             pdfLink.href = baseURL + fileNames[number];
