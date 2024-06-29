@@ -43,7 +43,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (pdfLink) {
         let currentURL = window.location.href;
-        
+
+        const isDesktop = window.matchMedia('(min-width: 767px)').matches;
+        if (isDesktop) {
+            pdfLink.setAttribute('target', '_blank');
+        }
         // Remove trailing slashes if present to normalize the URL
         currentURL = currentURL.replace(/\/+$/, '');
 
