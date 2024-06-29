@@ -7,12 +7,12 @@
     </button>
     <div class="origin-top-right absolute top-full mb-2 ml-5 w-39 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-10 hidden" role="menu" aria-orientation="vertical" aria-labelledby="options-menu" id="options-menu-list" tabindex="-1">
         <div class="py-1" role="none">
-            <a href="#" class="text-gray-700 block px-4 py-2 text-sm" target="_blank" role="menuitem" tabindex="-1" id="menu-item-pdf">
+            <a href="#" class="text-gray-700 block px-4 py-2 text-sm" target="_blank" download role="menuitem" tabindex="-1" id="menu-item-pdf">
                 PDF - Archivo
             </a>
-            <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-png">
+            <!-- <a href="#" class="text-gray-700 block px-4 py-2 text-sm" download role="menuitem" tabindex="-1" id="menu-item-png">
                 PNG - Imagen
-            </a>
+            </a> -->
         </div>
     </div>
 </div>
@@ -26,23 +26,37 @@
 </style>
 
 <script>
-    const baseURL = 'http://download.com/';
+    const baseURL = 'https://issag3.pages.dev/pdf/';
 
     // Definir los nombres de los archivos según el número en la URL
     const fileNames = {
         '0': {
-            pdf: 'rutinaprincipiantes.pdf',
-            png: 'rutinaprincipiantes.png'
+            pdf: '0-Rutinas%20para%20iniciados.pdf'
         },
         '1': {
-            pdf: 'RutinaCiclismo.pdf',
-            png: 'RutinaCiclismo.png'
+            pdf: '1-Rutina%20adaptada%20para%20bajar%20de%20peso.pdf'
         },
         '2': {
-            pdf: 'RutinaMujeres.pdf',
-            png: 'RutinaMujeres.png'
+            pdf: '2-RUTINA ADAPTADA           CICLISMO.pdf'
         },
-        // Añadir más según sea necesario
+        '3': {
+            pdf: '3-Rutina de 5 dias hombres.pdf'
+        },
+        '4': {
+            pdf: '4-Rutina mujeres nueva  5 dias .pdf'
+        },
+        '5': {
+            pdf: '5-RUTINA FRECUENCIA X 3 DE PIERNAS Nicole.pdf'
+        },
+        '6': {
+            pdf: '6-Rutina Varones Ulises.pdf'
+        },
+        '7': {
+            pdf: '7-HEAVY DUTY.pdf'
+        },
+        '8': {
+            pdf: '8-Rutina mujeres biseries.pdf'
+        }
     };
 
     // Obtener el número de la URL actual
@@ -50,12 +64,11 @@
     const urlParts = currentURL.split('/');
     const number = urlParts[urlParts.length - 1];
 
-    // Actualizar los enlaces de descarga con los nombres de archivo correctos
+    // Actualizar el enlace de descarga de PDF con el nombre de archivo correcto y la URL completa
     const pdfLink = document.getElementById('menu-item-pdf');
-    const pngLink = document.getElementById('menu-item-png');
 
     pdfLink.href = baseURL + fileNames[number].pdf;
-    pngLink.href = baseURL + fileNames[number].png;
+    pdfLink.setAttribute('download', fileNames[number].pdf); // Añadir el atributo download para descargar el archivo
 </script>
 
 <script>
