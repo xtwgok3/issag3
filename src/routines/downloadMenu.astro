@@ -16,7 +16,35 @@
         </div>
     </div>
 </div>
+<script>
+        const optionsMenu = document.getElementById("options-menu");
+    const optionsMenuList = document.getElementById("options-menu-list");
 
+    optionsMenu.addEventListener("click", () => {
+        optionsMenuList.classList.toggle("hidden");
+        optionsMenu.setAttribute("aria-expanded", optionsMenuList.classList.contains("hidden") ? "false" : "true");
+
+        // Positioning logic to make dropdown open upwards
+        const rect = optionsMenu.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+
+        if (rect.top > windowHeight / 2) {
+            optionsMenuList.classList.add("bottom-full"); // Adjust this value as needed
+            optionsMenuList.classList.remove("top-full");
+        } else {
+            optionsMenuList.classList.add("top-full");
+            optionsMenuList.classList.remove("bottom-full");
+        }
+    });
+
+    // Close the dropdown if user clicks outside of it
+    window.addEventListener("click", (event) => {
+        if (!optionsMenu.contains(event.target) && !optionsMenuList.contains(event.target)) {
+            optionsMenuList.classList.add("hidden");
+            optionsMenu.setAttribute("aria-expanded", "false");
+        }
+    });
+</script>
 <script>
     const baseURL = 'http://download.com/';
 
@@ -72,35 +100,4 @@
 
     pdfLink.href = baseURL + fileNames[number].pdf;
     pngLink.href = baseURL + fileNames[number].png;
-
-
-
-
-    const optionsMenu = document.getElementById("options-menu");
-    const optionsMenuList = document.getElementById("options-menu-list");
-
-    optionsMenu.addEventListener("click", () => {
-        optionsMenuList.classList.toggle("hidden");
-        optionsMenu.setAttribute("aria-expanded", optionsMenuList.classList.contains("hidden") ? "false" : "true");
-
-        // Positioning logic to make dropdown open upwards
-        const rect = optionsMenu.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-
-        if (rect.top > windowHeight / 2) {
-            optionsMenuList.classList.add("bottom-full"); // Adjust this value as needed
-            optionsMenuList.classList.remove("top-full");
-        } else {
-            optionsMenuList.classList.add("top-full");
-            optionsMenuList.classList.remove("bottom-full");
-        }
-    });
-
-    // Close the dropdown if user clicks outside of it
-    window.addEventListener("click", (event) => {
-        if (!optionsMenu.contains(event.target) && !optionsMenuList.contains(event.target)) {
-            optionsMenuList.classList.add("hidden");
-            optionsMenu.setAttribute("aria-expanded", "false");
-        }
-    });
 </script>
