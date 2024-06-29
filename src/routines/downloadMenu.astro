@@ -23,33 +23,26 @@
 </style>
 
 <script>
-    const baseURL = 'https://issag3.pages.dev/pdf/';
-
-    // Definir los nombres de los archivos PDF
-    const fileNames = {
-        '0': '0-Rutinas%20para%20iniciados.pdf',
-        '1': '1-Rutina%20adaptada%20para%20bajar%20de%20peso.pdf',
-        '2': '2-RUTINA%20ADAPTADA%20CICLISMO.pdf',
-        '3': '3-Rutina%20de%205%20dias%20hombres.pdf',
-        '4': '4-Rutina%20mujeres%20nueva%205%20dias.pdf',
-        '5': '5-RUTINA%20FRECUENCIA%20X%203%20DE%20PIERNAS%20Nicole.pdf',
-        '6': '6-Rutina%20Varones%20Ulises.pdf',
-        '7': '7-HEAVY%20DUTY.pdf',
-        '8': '8-Rutina%20mujeres%20biseries.pdf'
-    };
-
     document.addEventListener('DOMContentLoaded', function() {
     const pdfLink = document.getElementById('menu-item-pdf') as HTMLAnchorElement;
 
     if (pdfLink) {
         const currentURL = window.location.href;
-        const number = currentURL.substr(currentURL.lastIndexOf('/') - 2) as keyof typeof fileNames;
+        
+        // Utilizar una expresión regular para extraer el número al final de la URL
+        const match = currentURL.match(/\/(\d+)\/?$/);
 
-        if (fileNames[number]) {
-            pdfLink.href = baseURL + fileNames[number];
-            pdfLink.setAttribute('download', fileNames[number]);
+        if (match) {
+            const number = match[1] as keyof typeof fileNames;
+
+            if (fileNames[number]) {
+                pdfLink.href = baseURL + fileNames[number];
+                pdfLink.setAttribute('download', fileNames[number]);
+            } else {
+                console.error(`No se encontró el archivo para el número ${number}`);
+            }
         } else {
-            console.error(`No se encontró el archivo para el número ${number}`);
+            console.error(`No se encontró un número válido en la URL: ${currentURL}`);
         }
     }
 
