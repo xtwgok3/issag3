@@ -7,17 +7,59 @@
     </button>
     <div class="origin-top-right absolute top-full mb-2 ml-5 w-39 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-10 hidden" role="menu" aria-orientation="vertical" aria-labelledby="options-menu" id="options-menu-list" tabindex="-1">
         <div class="py-1" role="none">
-            <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-pdf">
-                PDF - Original
+            <a href="#" class="text-gray-700 block px-4 py-2 text-sm" target="_blank" role="menuitem" tabindex="-1" id="menu-item-pdf">
+                PDF - Archivo
             </a>
             <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-png">
-                PNG - 1
+                PNG - Imagen
             </a>
         </div>
     </div>
 </div>
+
+<style>
+    @media (max-width: 766px) {
+        #asd {
+            margin-left: 0.5rem;
+        }
+    }
+</style>
+
 <script>
-        const optionsMenu = document.getElementById("options-menu");
+    const baseURL = 'http://download.com/';
+
+    // Definir los nombres de los archivos según el número en la URL
+    const fileNames = {
+        '0': {
+            pdf: 'rutinaprincipiantes.pdf',
+            png: 'rutinaprincipiantes.png'
+        },
+        '1': {
+            pdf: 'RutinaCiclismo.pdf',
+            png: 'RutinaCiclismo.png'
+        },
+        '2': {
+            pdf: 'RutinaMujeres.pdf',
+            png: 'RutinaMujeres.png'
+        },
+        // Añadir más según sea necesario
+    };
+
+    // Obtener el número de la URL actual
+    const currentURL = window.location.href;
+    const urlParts = currentURL.split('/');
+    const number = urlParts[urlParts.length - 1];
+
+    // Actualizar los enlaces de descarga con los nombres de archivo correctos
+    const pdfLink = document.getElementById('menu-item-pdf');
+    const pngLink = document.getElementById('menu-item-png');
+
+    pdfLink.href = baseURL + fileNames[number].pdf;
+    pngLink.href = baseURL + fileNames[number].png;
+</script>
+
+<script>
+    const optionsMenu = document.getElementById("options-menu");
     const optionsMenuList = document.getElementById("options-menu-list");
 
     optionsMenu.addEventListener("click", () => {
@@ -44,60 +86,4 @@
             optionsMenu.setAttribute("aria-expanded", "false");
         }
     });
-</script>
-<script>
-    const baseURL = 'http://download.com/';
-
-    // Definir los nombres de los archivos según el número en la URL
-    const fileNames = {
-        '0': {
-            pdf: 'rutinaprincipiantes.pdf',
-            png: 'rutinaprincipiantes.png'
-        },
-        '1': {
-            pdf: 'RutinaCiclismo.pdf',
-            png: 'RutinaCiclismo.png'
-        },
-        '2': {
-            pdf: 'RutinaMujeres.pdf',
-            png: 'RutinaMujeres.png'
-        },
-        '3': {
-            pdf: 'RutinaMujeres.pdf',
-            png: 'RutinaMujeres.png'
-        },
-        '4': {
-            pdf: 'RutinaMujeres.pdf',
-            png: 'RutinaMujeres.png'
-        },
-        '5': {
-            pdf: 'RutinaMujeres.pdf',
-            png: 'RutinaMujeres.png'
-        },
-        '6': {
-            pdf: 'RutinaMujeres.pdf',
-            png: 'RutinaMujeres.png'
-        },
-        '7': {
-            pdf: 'RutinaMujeres.pdf',
-            png: 'RutinaMujeres.png'
-        },
-        '8': {
-            pdf: 'RutinaMujeres.pdf',
-            png: 'RutinaMujeres.png'
-        },
-        
-    };
-
-    // Obtener el número de la URL actual
-    const currentURL = window.location.href;
-    const urlParts = currentURL.split('/');
-    const number = urlParts[urlParts.length - 1];
-
-    // Actualizar los enlaces de descarga con los nombres de archivo correctos
-    const pdfLink = document.getElementById('menu-item-pdf');
-    const pngLink = document.getElementById('menu-item-png');
-
-    pdfLink.href = baseURL + fileNames[number].pdf;
-    pngLink.href = baseURL + fileNames[number].png;
 </script>
