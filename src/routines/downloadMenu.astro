@@ -10,9 +10,6 @@
             <a href="#" class="text-gray-700 block px-4 py-2 text-sm" target="_blank" download role="menuitem" tabindex="-1" id="menu-item-pdf">
                 PDF - Archivo
             </a>
-            <!-- <a href="#" class="text-gray-700 block px-4 py-2 text-sm" download role="menuitem" tabindex="-1" id="menu-item-png">
-                PNG - Imagen
-            </a> -->
         </div>
     </div>
 </div>
@@ -28,75 +25,64 @@
 <script>
     const baseURL = 'https://issag3.pages.dev/pdf/';
 
-    // Definir los nombres de los archivos según el número en la URL
+    // Definir los nombres de los archivos PDF
     const fileNames = {
-        '0': {
-            pdf: '0-Rutinas%20para%20iniciados.pdf'
-        },
-        '1': {
-            pdf: '1-Rutina%20adaptada%20para%20bajar%20de%20peso.pdf'
-        },
-        '2': {
-            pdf: '2-RUTINA ADAPTADA           CICLISMO.pdf'
-        },
-        '3': {
-            pdf: '3-Rutina de 5 dias hombres.pdf'
-        },
-        '4': {
-            pdf: '4-Rutina mujeres nueva  5 dias .pdf'
-        },
-        '5': {
-            pdf: '5-RUTINA FRECUENCIA X 3 DE PIERNAS Nicole.pdf'
-        },
-        '6': {
-            pdf: '6-Rutina Varones Ulises.pdf'
-        },
-        '7': {
-            pdf: '7-HEAVY DUTY.pdf'
-        },
-        '8': {
-            pdf: '8-Rutina mujeres biseries.pdf'
-        }
+        '0': '0-Rutinas%20para%20iniciados.pdf',
+        '1': '1-Rutina%20adaptada%20para%20bajar%20de%20peso.pdf',
+        '2': '2-RUTINA%20ADAPTADA%20CICLISMO.pdf',
+        '3': '3-Rutina%20de%205%20dias%20hombres.pdf',
+        '4': '4-Rutina%20mujeres%20nueva%205%20dias.pdf',
+        '5': '5-RUTINA%20FRECUENCIA%20X%203%20DE%20PIERNAS%20Nicole.pdf',
+        '6': '6-Rutina%20Varones%20Ulises.pdf',
+        '7': '7-HEAVY%20DUTY.pdf',
+        '8': '8-Rutina%20mujeres%20biseries.pdf'
     };
 
-    // Obtener el número de la URL actual
-    const currentURL = window.location.href;
-    const urlParts = currentURL.split('/');
-    const number = urlParts[urlParts.length - 1];
+    document.addEventListener('DOMContentLoaded', function() {
+    const pdfLink = document.getElementById('menu-item-pdf') as HTMLAnchorElement;
 
-    // Actualizar el enlace de descarga de PDF con el nombre de archivo correcto y la URL completa
-    const pdfLink = document.getElementById('menu-item-pdf');
+    if (pdfLink) {
+        const currentURL = window.location.href;
+        const number = currentURL.substr(currentURL.lastIndexOf('/') + 1) as keyof typeof fileNames;
 
-    pdfLink.href = baseURL + fileNames[number].pdf;
-    pdfLink.setAttribute('download', fileNames[number].pdf); // Añadir el atributo download para descargar el archivo
-</script>
+        if (fileNames[number]) {
+            pdfLink.href = baseURL + fileNames[number];
+            pdfLink.setAttribute('download', fileNames[number]);
+        } else {
+            console.error(`No se encontró el archivo para el número ${number}`);
+        }
+    }
 
-<script>
     const optionsMenu = document.getElementById("options-menu");
     const optionsMenuList = document.getElementById("options-menu-list");
 
-    optionsMenu.addEventListener("click", () => {
-        optionsMenuList.classList.toggle("hidden");
-        optionsMenu.setAttribute("aria-expanded", optionsMenuList.classList.contains("hidden") ? "false" : "true");
+    if (optionsMenu && optionsMenuList) {
+        optionsMenu.addEventListener("click", () => {
+            optionsMenuList.classList.toggle("hidden");
+            optionsMenu.setAttribute("aria-expanded", optionsMenuList.classList.contains("hidden") ? "false" : "true");
 
-        // Positioning logic to make dropdown open upwards
-        const rect = optionsMenu.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
+            const rect = optionsMenu.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
 
-        if (rect.top > windowHeight / 2) {
-            optionsMenuList.classList.add("bottom-full"); // Adjust this value as needed
-            optionsMenuList.classList.remove("top-full");
-        } else {
-            optionsMenuList.classList.add("top-full");
-            optionsMenuList.classList.remove("bottom-full");
-        }
-    });
+            if (rect.top > windowHeight / 2) {
+                optionsMenuList.classList.add("bottom-full");
+                optionsMenuList.classList.remove("top-full");
+            } else {
+                optionsMenuList.classList.add("top-full");
+                optionsMenuList.classList.remove("bottom-full");
+            }
+        });
 
-    // Close the dropdown if user clicks outside of it
-    window.addEventListener("click", (event) => {
-        if (!optionsMenu.contains(event.target) && !optionsMenuList.contains(event.target)) {
-            optionsMenuList.classList.add("hidden");
-            optionsMenu.setAttribute("aria-expanded", "false");
-        }
-    });
+        window.addEventListener("click", (event) => {
+            const target = event.target;
+            if (!(target instanceof Node) || !optionsMenu.contains(target) && !optionsMenuList.contains(target)) {
+                optionsMenuList.classList.add("hidden");
+                optionsMenu.setAttribute("aria-expanded", "false");
+            }
+        });
+    } else {
+        console.error("No se encontró optionsMenu o optionsMenuList");
+    }
+});
+
 </script>
