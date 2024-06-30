@@ -45,6 +45,7 @@
 
 <style>
 
+
 /* ISSA POWER GYM moviles */
 @media (max-width: 768px) {
 .container {
@@ -62,7 +63,6 @@ left:3px;
 
 .title {
 /* Rutinas ISSA GYM */
-
 box-sizing: border-box;
 
 position: absolute;
@@ -93,11 +93,16 @@ height: 76px;
 left: 23px;
 top: 63px;
 border-radius: 4px;
-text-shadow: 0 0 black;
 border: 2px solid indianred;
 background: #D9D9D9;
 
+font-family: 'Roboto', sans-serif;
+text-shadow: 0 0 1px #000;
+    color: #333333; /* Color de texto */
+    position: absolute;
+    transition: all 0.3s ease;
 }
+
 
 /* Rectangle 2 */
 #rectangle2 {
@@ -226,6 +231,7 @@ height: 390px;
 background: #FFFFFF;
 border: 1px solid rgba(0, 0, 0, 0.1);
 border-radius: 8px;
+
 }
 
 .title {
@@ -252,19 +258,23 @@ text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 /* Rectangle 1 */
 .rectangle {
-font-size: 15px;
+font-size: 16px;
 position: absolute;
-width: 119px;
+width: 125px;
 height: 85px;
 left: 77px;
 top: 78px;
 border-radius: 6px;
-text-shadow: 0 0 black;
-text-shadow: 0 0 black;
+text-shadow: 0 0 1px #000;
 border: 2px solid indianred;
-
+color: #333333;
 background: #D9D9D9;
+
+font-family: 'Roboto', sans-serif;
+transition: all 0.3s ease;
 }
+
+
 
 /* Rectangle 9 */
 #rectangle9 {
@@ -356,6 +366,25 @@ background: #D9D9D9;
 }
 
 }
+.rectangle:hover,
+#rectangle2:hover,
+#rectangle3:hover,
+#rectangle4:hover,
+#rectangle5:hover,
+#rectangle6:hover,
+#rectangle7:hover,
+#rectangle8:hover,
+#rectangle9:hover {
+    background: #ffffff; /* Cambiar el color de fondo */
+    border-color: #a52a2a; /* Cambiar el color del borde */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Agregar una sombra */
+    transform: scale(1.05); /* Aumentar ligeramente el tamaño */
+    color: #000000; /* Cambiar el color del texto */
+    cursor: pointer; /* Cambiar el cursor a pointer */
+}
+
+
+/*min width 769*/
 
 /* samsung 360 vwp*/ 
 @media (max-width: 360px) {
