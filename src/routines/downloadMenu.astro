@@ -26,78 +26,78 @@
 </style>
 
 <script>
-const baseURL = 'https://xtwgok3.github.io/files/PDF/';
-
-// Definir los nombres de los archivos PDF
-const fileNames = {
-    '0': '0-Rutinas%20para%20iniciados.pdf',
-    '1': '1-Rutina%20adaptada%20para%20bajar%20de%20peso.pdf',
-    '2': '2-RUTINA%20ADAPTADA%20CICLISMO.pdf',
-    '3': '3-Rutina%20de%205%20dias%20hombres.pdf',
-    '4': '4-Rutina%20mujeres%20nueva%205%20dias.pdf',
-    '5': '5-RUTINA%20FRECUENCIA%20X%203%20DE%20PIERNAS%20Nicole.pdf',
-    '6': '6-Rutina%20Varones%20Ulises.pdf',
-    '7': '7-HEAVY%20DUTY.pdf',
-    '8': '8-Rutina%20mujeres%20biseries.pdf'
-};
-
-document.addEventListener('DOMContentLoaded', function() {
-    const pdfLink = document.getElementById('menu-item-pdf') as HTMLAnchorElement;
-
-    if (pdfLink) {
-        let currentURL = window.location.href;
-
-        const isDesktop = window.matchMedia('(min-width: 767px)').matches;
-        if (isDesktop) {
-            pdfLink.setAttribute('target', '_blank');
-        }
-        // Remove trailing slashes if present to normalize the URL
-        currentURL = currentURL.replace(/\/+$/, '');
-
-        const parts = currentURL.split('/');
-        const number = parts[parts.length - 1] as keyof typeof fileNames;
-
-        if (fileNames[number]) {
-            pdfLink.href = baseURL + fileNames[number];
-            pdfLink.setAttribute('download', fileNames[number]);
-        } else {
-            console.error(`No se encontró el archivo para el número ${number}`);
-        }
-    }
-
-    const optionsMenu = document.getElementById("options-menu");
-    const optionsMenuList = document.getElementById("options-menu-list");
-
-    if (optionsMenu && optionsMenuList) {
-        optionsMenu.addEventListener("click", () => {
-            optionsMenuList.classList.toggle("hidden");
-            optionsMenu.setAttribute("aria-expanded", optionsMenuList.classList.contains("hidden") ? "false" : "true");
-
-            const rect = optionsMenu.getBoundingClientRect();
-            const windowHeight = window.innerHeight;
-
-            if (rect.top > windowHeight / 2) {
-                optionsMenuList.classList.add("bottom-full");
-                optionsMenuList.classList.remove("top-full");
+    const baseURL = 'https://xtwgok3.github.io/files/PDF/';
+    
+    // Definir los nombres de los archivos PDF
+    const fileNames = {
+        '0': '0-Rutinas%20para%20iniciados.pdf',
+        '1': '1-Rutina%20adaptada%20para%20bajar%20de%20peso.pdf',
+        '2': '2-RUTINA%20ADAPTADA%20CICLISMO.pdf',
+        '3': '3-Rutina%20de%205%20dias%20hombres.pdf',
+        '4': '4-Rutina%20mujeres%20nueva%205%20dias.pdf',
+        '5': '5-RUTINA%20FRECUENCIA%20X%203%20DE%20PIERNAS%20Nicole.pdf',
+        '6': '6-Rutina%20Varones%20Ulises.pdf',
+        '7': '7-HEAVY%20DUTY.pdf',
+        '8': '8-Rutina%20mujeres%20biseries.pdf'
+    };
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        const pdfLink = document.getElementById('menu-item-pdf') as HTMLAnchorElement;
+    
+        if (pdfLink) {
+            let currentURL = window.location.href;
+    
+            const isDesktop = window.matchMedia('(min-width: 767px)').matches;
+            if (isDesktop) {
+                pdfLink.setAttribute('target', '_blank');
+            }
+            // Remove trailing slashes if present to normalize the URL
+            currentURL = currentURL.replace(/\/+$/, '');
+    
+            const parts = currentURL.split('/');
+            const number = parts[parts.length - 1] as keyof typeof fileNames;
+    
+            if (fileNames[number]) {
+                pdfLink.href = baseURL + fileNames[number];
+                pdfLink.setAttribute('download', fileNames[number]);
             } else {
-                optionsMenuList.classList.add("top-full");
-                optionsMenuList.classList.remove("bottom-full");
+                console.error(`No se encontró el archivo para el número ${number}`);
             }
-        });
-
-        window.addEventListener("click", (event) => {
-            const target = event.target;
-            if (!(target instanceof Node) || !optionsMenu.contains(target) && !optionsMenuList.contains(target)) {
-                optionsMenuList.classList.add("hidden");
-                optionsMenu.setAttribute("aria-expanded", "false");
-            }
-        });
-    } else {
-        console.error("No se encontró optionsMenu o optionsMenuList");
-    }
-});
-
-</script>
+        }
+    
+        const optionsMenu = document.getElementById("options-menu");
+        const optionsMenuList = document.getElementById("options-menu-list");
+    
+        if (optionsMenu && optionsMenuList) {
+            optionsMenu.addEventListener("click", () => {
+                optionsMenuList.classList.toggle("hidden");
+                optionsMenu.setAttribute("aria-expanded", optionsMenuList.classList.contains("hidden") ? "false" : "true");
+    
+                const rect = optionsMenu.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+    
+                if (rect.top > windowHeight / 2) {
+                    optionsMenuList.classList.add("bottom-full");
+                    optionsMenuList.classList.remove("top-full");
+                } else {
+                    optionsMenuList.classList.add("top-full");
+                    optionsMenuList.classList.remove("bottom-full");
+                }
+            });
+    
+            window.addEventListener("click", (event) => {
+                const target = event.target;
+                if (!(target instanceof Node) || !optionsMenu.contains(target) && !optionsMenuList.contains(target)) {
+                    optionsMenuList.classList.add("hidden");
+                    optionsMenu.setAttribute("aria-expanded", "false");
+                }
+            });
+        } else {
+            console.error("No se encontró optionsMenu o optionsMenuList");
+        }
+    });
+    
+    </script>
 
 <!--GENERADOR PDF -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
