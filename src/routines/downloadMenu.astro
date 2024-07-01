@@ -106,12 +106,13 @@
  const button = document.getElementById("button");
  const makepdf = document.getElementById("makepdf");
  const asdButton = document.getElementById("asd");
-
+ const optionsMenuList = document.getElementById("options-menu-list");
         if (button && asdButton && makepdf) {
             button.addEventListener("click", function(event) {
+                asdButton.style.display = "none"; 
                 event.preventDefault();/*evita recarga página*/
                 const iframe = document.createElement('iframe');
-                asdButton.style.display = "none"; /* evita que imprima btn*/
+               /* asdButton.style.display = "none";*/ /* evita que imprima btn*/
                 iframe.style.cssText = 'position: absolute; width: 0; height: 0; border: none;';
                 document.body.appendChild(iframe);
 
@@ -130,6 +131,8 @@
                 iframe.contentWindow.focus();
                 iframe.contentWindow.print();
 
+                optionsMenuList.classList.toggle("hidden");
+                optionsMenu.setAttribute("aria-expanded", optionsMenuList.classList.contains("hidden") ? "false" : "true");
                 document.body.removeChild(iframe);
                 
             }});
