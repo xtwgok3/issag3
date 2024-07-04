@@ -1,46 +1,46 @@
-
 <section class="container"> 
-    <div class="title">Rutinas ISSA GYM</div>
+    <h1>Rutinas ISSA GYM</h1>
 
-    <a href="/0"><div class="rectangle bg-gray-300 text-center text-sm md:text-base lg:text-lg xl:text-xl" id="rectangle1">
+    <a href="/routines/0"><div class="rectangle bg-gray-300 text-center text-sm md:text-base lg:text-lg xl:text-xl" id="rectangle1">
         Rutinas para iniciados.
     </div></a>
 
-    <a href="/1"> <div class="rectangle bg-gray-300 text-center text-sm  md:text-base lg:text-lg xl:text-xl" id="rectangle2">
+    <a href="/routines/1"> <div class="rectangle bg-gray-300 text-center text-sm  md:text-base lg:text-lg xl:text-xl" id="rectangle1">
         Rutina adaptada para bajar de peso.
     </div></a>
 
-    <a href="/2"> <div class="rectangle bg-gray-300 text-center text-sm md:text-base lg:text-lg xl:text-xl" id="rectangle3">
+    <a href="/routines/2"> <div class="rectangle bg-gray-300 text-center text-sm md:text-base lg:text-lg xl:text-xl" id="rectangle1">
         Rutina adaptada Ciclismo.
     </div></a>
 
-    <a href="/3"><div class="rectangle bg-gray-300 text-center text-sm md:text-base lg:text-lg xl:text-xl" id="rectangle4">
+    <a href="/routines/3"><div class="rectangle bg-gray-300 text-center text-sm md:text-base lg:text-lg xl:text-xl" id="rectangle1">
         Rutina de 5 dias hombres.
     </div></a>
 
-    <a href="/4"> <div class="rectangle bg-gray-300 text-center text-sm md:text-base lg:text-lg xl:text-xl" id="rectangle5">
+    <a href="/routines/4"> <div class="rectangle bg-gray-300 text-center text-sm md:text-base lg:text-lg xl:text-xl" id="rectangle1">
         Rutina mujeres nueva  5 dias.
     </div></a>
 
-    <a href="/5"> <div class="rectangle bg-gray-300 text-center text-sm md:text-base lg:text-lg xl:text-xl" id="rectangle6">
+    <a href="/routines/5"> <div class="rectangle bg-gray-300 text-center text-sm md:text-base lg:text-lg xl:text-xl" id="rectangle1">
         Rutina frecuencia x3 piernas Nicole.
     </div></a>
 
-    <a href="/6"> <div class="rectangle bg-gray-300 text-center text-sm md:text-base lg:text-lg xl:text-xl" id="rectangle7">
+    <a href="/routines/6"> <div class="rectangle bg-gray-300 text-center text-sm md:text-base lg:text-lg xl:text-xl" id="rectangle1">
         Rutina Varones Ulises.
     </div></a>
 
-    <a href="/7"><div class="rectangle bg-gray-300 text-center text-sm md:text-base lg:text-lg xl:text-xl" id="rectangle8">
+    <a href="/routines/7"><div class="rectangle bg-gray-300 text-center text-sm md:text-base lg:text-lg xl:text-xl" id="rectangle1">
         HEAVY DUTY.
     </div></a>
 
 
-    <a href="/8"> <div class="rectangle bg-gray-300 text-center text-sm md:text-base lg:text-lg xl:text-xl" id="rectangle9">
+    <a href="/routines/8"> <div class="rectangle bg-gray-300 text-center text-sm md:text-base lg:text-lg xl:text-xl" id="rectangle1">
         Rutina mujeres biseries.
     </div></a>
 
 
-
+<h1 class="tittle2" >ACCEDE A LA GUÍA DE ALIMENTACIÓN</h1>
+<div id="popup" class="popup">Esta función estará disponible próximamente.</div>
 </section>
 
 
@@ -49,334 +49,67 @@
 
 
 /* ISSA POWER GYM moviles */
-@media (max-width: 768px) {
-.container {
-box-sizing: border-box;
 
-position: relative;
-width: 430px;
-height: 364px;
+.container {
+    box-sizing: border-box;
+    position: relative;
+    height: 400px;
+    width: 85%;
+    max-width: 800px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+
+    padding: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
 
 background: #FFFFFF;
 border: 1px solid rgba(0, 0, 0, 0.1);
 border-radius: 8px;
-left:3px;
+
+list-style: none;
+padding: 0;
+
+
+user-select: none;
 }
-
-.title {
-/* Rutinas ISSA GYM */
-box-sizing: border-box;
-
-position: absolute;
-width: 204px;
-height: 30px;
-left: calc(50% - 204px/2 + 10px);
-top: 15px;
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 700;
-font-size: 23px;
-line-height: 130%;
-/* identical to box height, or 30px */
-
-color: #B14242;
-
-border: 1px solid rgba(0, 0, 0, 0.15);
-text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
+.text-sm {
+    line-height: 1.75rem;
 }
-
 /* Rectangle 1 */
 .rectangle {
-position: absolute;
-width: 100px;
-height: 76px;
-left: 23px;
-top: 63px;
+    height: 85px;
+    border-radius: 4px;
+    border: 2px solid indianred;
+    text-shadow: 0 0 1px #000;
+    color: #333333;
+    transition: all 0.3s ease;
+
+    text-align: -webkit-center;
+    box-sizing: border-box;
+    width: 125px;
+    font-size: 16px;
+
 border-radius: 4px;
 border: 2px solid indianred;
 background: #D9D9D9;
 
 font-family: 'Roboto', sans-serif;
 text-shadow: 0 0 1px #000;
-    color: #333333; /* Color de texto */
-    position: absolute;
-    transition: all 0.3s ease;
-}
-
-
-/* Rectangle 2 */
-#rectangle2 {
-position: absolute;
-width: 100px;
-height: 76px;
-left: 170px;
-top: 63px;
-
-background: #D9D9D9;
-
-}
-
-/* Rectangle 3 */
-#rectangle3 {
-position: absolute;
-width: 100px;
-height: 76px;
-left: 307px;
-top: 63px;
-
-background: #D9D9D9;
-
-}
-
-
-/* Rectangle 4 */
-#rectangle4 {
-position: absolute;
-width: 100px;
-height: 76px;
-left: 23px;
-top: 164px;
-
-background: #D9D9D9;
-
-}
-
-/* Rectangle 5 */
-#rectangle5 {
-position: absolute;
-width: 100px;
-height: 76px;
-left: 168px;
-top: 164px;
-
-background: #D9D9D9;
-
-}
-
-/* Rectangle 6 */
-#rectangle6 {
-position: absolute;
-width: 100px;
-height: 76px;
-left: 307px;
-top: 164px;
-
-background: #D9D9D9;
-
-}
-
-/* Rectangle 7 */
-#rectangle7 {
-position: absolute;
-width: 100px;
-height: 76px;
-left: 23px;
-top: 265px;
-
-background: #D9D9D9;
-
-}
-
-/* Rectangle 8 */
-#rectangle8 {
-position: absolute;
-width: 100px;
-height: 76px;
-left: 168px;
-top: 265px;
-
-background: #D9D9D9;
-
-}
-
-/* Rectangle 9 */
-#rectangle9 {
-position: absolute;
-width: 100px;
-height: 76px;
-left: 307px;
-top: 265px;
-
-background: #D9D9D9;
-
-}
-}
-/*iphone 14*/
-@media (max-width: 430px) and (min-height: 932px) {
-    .container{
-        width: 430px;
-        left: -2px;
-    }}
-    /*iphone 12*/
-@media (max-width: 390px) and (min-height: 844px) {
-    .container{
-        width: 420px;
-        left: 8px;
-    }}
-/* z fold 5 */
-    @media (max-width: 344px) and (min-height: 882px) {
-    .container{
-        width: 417px;
-        left: 11px;
-    }}
-
-@media (min-width: 769px) {
-    .container {
-box-sizing: border-box;
-
-position: relative;
-width: 765px;
-height: 390px;
-
-background: #FFFFFF;
-border: 1px solid rgba(0, 0, 0, 0.1);
-border-radius: 8px;
-
-}
-
-.title {
-/* Rutinas ISSA GYM */
-box-sizing: border-box;
-
-position: absolute;
-width: 204px;
-height: 30px;
-left: calc(50% - 204px/2 - 15.5px);
-top: 14px;
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 700;
-font-size: 23px;
-line-height: 130%;
-/* identical to box height, or 30px */
-color: #B14242;
-border: 1px solid rgba(0, 0, 0, 0.15);
-text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-
-/* Rectangle 1 */
-.rectangle {
-font-size: 16px;
-position: absolute;
-width: 125px;
-height: 85px;
-left: 77px;
-top: 78px;
-border-radius: 6px;
-text-shadow: 0 0 1px #000;
-border: 2px solid indianred;
-color: #333333;
-background: #D9D9D9;
-
-font-family: 'Roboto', sans-serif;
+color: #333333; /* Color de texto */
 transition: all 0.3s ease;
+cursor: pointer;
+
+display: inline-block;
+margin-right: 20px;
+vertical-align: top;
 }
 
 
-
-/* Rectangle 9 */
-#rectangle9 {
-position: absolute;
-width: 125px;
-height: 85px;
-left: 554px;
-top: 286px;
-
-background: #D9D9D9;
-}
-
-/* Rectangle 8 */
-#rectangle8 {
-position: absolute;
-width: 125px;
-height: 85px;
-left: 308px;
-top: 280px;
-
-background: #D9D9D9;
-
-}
-/* Rectangle 7 */
-#rectangle7 {
-position: absolute;
-width: 125px;
-height: 85px;
-left: 77px;
-top: 280px;
-
-background: #D9D9D9;
-}
-
-/* Rectangle 6 */
-#rectangle6 {
-position: absolute;
-width: 125px;
-height: 85px;
-left: 554px;
-top: 179px;
-
-background: #D9D9D9;
-}
-
-/* Rectangle 5 */
-#rectangle5 {
-position: absolute;
-width: 125px;
-height: 85px;
-left: 308px;
-top: 179px;
-
-background: #D9D9D9;
-}
-
-/* Rectangle 4 */
-#rectangle4 {
-position: absolute;
-width: 125px;
-height: 85px;
-left: 77px;
-top: 179px;
-
-background: #D9D9D9;
-}
-
-/* Rectangle 3 */
-#rectangle3 {
-position: absolute;
-width: 125px;
-height: 85px;
-left: 554px;
-top: 78px;
-
-background: #D9D9D9;
-
-}
-
-/* Rectangle 2 */
-#rectangle2 {
-position: absolute;
-width: 125px;
-height: 85px;
-left: 308px;
-top: 78px;
-
-background: #D9D9D9;
-}
-
-}
-.rectangle:hover,
-#rectangle2:hover,
-#rectangle3:hover,
-#rectangle4:hover,
-#rectangle5:hover,
-#rectangle6:hover,
-#rectangle7:hover,
-#rectangle8:hover,
-#rectangle9:hover {
+.rectangle:hover {
     background: #ffffff; /* Cambiar el color de fondo */
     border-color: #a52a2a; /* Cambiar el color del borde */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Agregar una sombra */
@@ -386,34 +119,102 @@ background: #D9D9D9;
 }
 
 
-/*min width 769*/
-
-/* samsung 360 vwp*/ 
-@media (max-width: 360px) {
-    .container {
-        width: 400px;
-        height: 364px;
-        position: relative;
-        left: 15px;
-    }
-
-    .rectangle,
-    #rectangle4,
-    #rectangle7 {
-        left: 11px;
-    }
-
-    #rectangle2,
-    #rectangle5,
-    #rectangle8 {
-        left: 145px;
-    }
-
-    #rectangle3,
-    #rectangle6,
-    #rectangle9 {
-        left: 286px;
-    }
+@media only screen and (max-width: 600px) {/*moviles */
+.container {
+    max-width: 1024px!important;
+    height: auto;
+    margin-top: 20px!important;
+}
+.title{
+    position: relative;
 }
 
+.rectangle{ /* fila doble para moviles*/ 
+    margin-right: 0px;
+}}
+
+@media only screen and (min-width: 601px) {/*tablet / pc */
+.container {
+    height: 390px!important;
+    width: 765px!important;
+    gap: 10px!important;
+    max-width: 765px!important;
+}}
+
+
+h1{
+box-sizing: border-box;
+
+width: 85%;
+height: auto;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 23px;
+line-height: 130%;
+
+color: #B14242;
+
+border: 1px solid rgba(0, 0, 0, 0.15);
+text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+text-align: center;
+margin:5px;
+border-bottom: solid;
+user-select: none;
+}
+
+.tittle2{
+    border: 3px solid rgba(0, 0, 0, 0.15);
+    font-size: 20px;
+    border: outset;
+    cursor: pointer; /* Cambia el cursor a una mano */
+  pointer-events: auto;
+}
+
+
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    border: 2px solid #a52a2a;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-size: 20px;
+    color: #a52a2a;
+    opacity: 0;
+    animation: fadeInOut 3s forwards;
+}
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
 </style>
+
+<!--script>
+    document.querySelector('.tittle2')?.addEventListener('click', () => {
+      window.location.href = '/'; /* Redirige al enlace deseado */
+    });
+</script-->
+
+<script>
+    document.querySelector('.tittle2')?.addEventListener('click', () => {
+        const popup = document.getElementById('popup');
+        popup.style.display = 'block';
+        setTimeout(() => {
+            popup.style.display = 'none';
+        }, 3000);
+    });
+    </script>

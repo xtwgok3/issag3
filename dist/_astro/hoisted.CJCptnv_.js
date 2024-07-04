@@ -1,0 +1,1 @@
+import"./SmokeBackground.astro_astro_type_script_index_0_lang.7RsuF-eF.js";document.querySelector(".tittle2")?.addEventListener("click",()=>{const e=document.getElementById("popup");e.style.display="block",setTimeout(()=>{e.style.display="none"},3e3)});
