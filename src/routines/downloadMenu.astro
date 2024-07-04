@@ -16,19 +16,10 @@
         </div>
     </div>
 </div>
-
-<style>
-    @media (max-width: 766px) {
-        #asd {
-            margin-left: 0.5rem;
-        }
-    }
-</style>
-
+<style>@media (max-width: 766px) {#asd {margin-left: 0.5rem;}}</style>
 <script>
-    const baseURL = 'https://xtwgok3.github.io/files/PDF/';
-    
-    // Definir los nombres de los archivos PDF
+const baseURL = 'https://xtwgok3.github.io/files/PDF/';
+// Definir los nombres de los archivos PDF
     const fileNames = {
         '0': '0-Rutinas%20para%20iniciados.pdf',
         '1': '1-Rutina%20adaptada%20para%20bajar%20de%20peso.pdf',
@@ -43,26 +34,19 @@
     
     document.addEventListener('DOMContentLoaded', function() {
         const pdfLink = document.getElementById('menu-item-pdf') as HTMLAnchorElement;
-    
         if (pdfLink) {
             let currentURL = window.location.href;
-    
             const isDesktop = window.matchMedia('(min-width: 767px)').matches;
-            if (isDesktop) {
-                pdfLink.setAttribute('target', '_blank');
-            }
+            if (isDesktop) {pdfLink.setAttribute('target', '_blank');}
+
             // Remove trailing slashes if present to normalize the URL
             currentURL = currentURL.replace(/\/+$/, '');
-    
+
             const parts = currentURL.split('/');
             const number = parts[parts.length - 1] as keyof typeof fileNames;
-    
-            if (fileNames[number]) {
-                pdfLink.href = baseURL + fileNames[number];
-                pdfLink.setAttribute('download', fileNames[number]);
-            } else {
-                console.error(`No se encontró el archivo para el número ${number}`);
-            }
+
+            if (fileNames[number]) {pdfLink.href = baseURL + fileNames[number];pdfLink.setAttribute('download', fileNames[number]);}
+            else {console.error(`No se encontró el archivo para el número ${number}`);}
         }
     
         const optionsMenu = document.getElementById("options-menu");
@@ -76,28 +60,18 @@
                 const rect = optionsMenu.getBoundingClientRect();
                 const windowHeight = window.innerHeight;
     
-                if (rect.top > windowHeight / 2) {
-                    optionsMenuList.classList.add("bottom-full");
-                    optionsMenuList.classList.remove("top-full");
-                } else {
-                    optionsMenuList.classList.add("top-full");
-                    optionsMenuList.classList.remove("bottom-full");
-                }
+                if (rect.top > windowHeight / 2) {optionsMenuList.classList.add("bottom-full");optionsMenuList.classList.remove("top-full");}
+                else {optionsMenuList.classList.add("top-full");optionsMenuList.classList.remove("bottom-full");}
             });
     
             window.addEventListener("click", (event) => {
                 const target = event.target;
-                if (!(target instanceof Node) || !optionsMenu.contains(target) && !optionsMenuList.contains(target)) {
-                    optionsMenuList.classList.add("hidden");
-                    optionsMenu.setAttribute("aria-expanded", "false");
-                }
-            });
-        } else {
-            console.error("No se encontró optionsMenu o optionsMenuList");
-        }
-    });
-    
-    </script>
+                if (!(target instanceof Node) || !optionsMenu.contains(target) && !optionsMenuList.contains(target))
+                {optionsMenuList.classList.add("hidden");optionsMenu.setAttribute("aria-expanded", "false");}
+            });}
+            else {console.error("No se encontró optionsMenu o optionsMenuList");}
+ });
+</script>
 <!--GENERADOR PDF--> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
