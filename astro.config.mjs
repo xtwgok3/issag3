@@ -8,6 +8,7 @@ import { imagetools } from 'vite-imagetools';
 import purgecss from '@fullhuman/postcss-purgecss';
 import critical from 'rollup-plugin-critical';
 
+
 // https://astro.build/config
 export default defineConfig({
   build: {
@@ -15,6 +16,21 @@ export default defineConfig({
   },
   compressHTML: true,
   prefetch: true,
+  prerender: {
+    routes: [
+      '/',
+      '/routines/index',
+      '/routines/0',
+      '/routines/1',
+      '/routines/2',
+      '/routines/3',
+      '/routines/4',
+      '/routines/5',
+      '/routines/6',
+      '/routines/7',
+      '/routines/8',
+    ],
+  },
   integrations: [tailwind(), sitemap()],
   adapter: cloudflare(),
   output: "hybrid",
@@ -55,7 +71,17 @@ export default defineConfig({
         criticalBase: 'dist/',
         criticalUrl: '',
         criticalPages: [
-          { uri: '', template: 'index' }
+          { uri: '', template: 'index' },
+          { uri: 'routines/index', template: 'routines/index' },
+          { uri: 'routines/0', template: 'routines/0' },
+          { uri: 'routines/1', template: 'routines/1' },
+          { uri: 'routines/2', template: 'routines/2' },
+          { uri: 'routines/3', template: 'routines/3' },
+          { uri: 'routines/4', template: 'routines/4' },
+          { uri: 'routines/5', template: 'routines/5' },
+          { uri: 'routines/6', template: 'routines/6' },
+          { uri: 'routines/7', template: 'routines/7' },
+          { uri: 'routines/8', template: 'routines/8' },
         ],
         criticalConfig: {},
       }),
@@ -86,4 +112,4 @@ export default defineConfig({
     },
   },
 });
-//optimize v3 tests
+//optimize test 4
