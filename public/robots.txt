@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Host
+Host: https://issage3.pages.dev/
+
+# Sitemaps
+Sitemap: https://issag3.pages.dev/sitemap-index.xml
