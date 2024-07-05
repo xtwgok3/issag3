@@ -4,6 +4,9 @@ import sitemap from "@astrojs/sitemap";
 import { defineConfig } from "astro/config";
 import { VitePWA } from "vite-plugin-pwa";
 import viteCompression from "vite-plugin-compression";
+import { imagetools } from 'vite-imagetools';
+import purgecss from '@fullhuman/postcss-purgecss';
+import critical from 'rollup-plugin-critical';
 
 // https://astro.build/config
 export default defineConfig({
@@ -47,6 +50,15 @@ export default defineConfig({
         algorithm: 'gzip',
         ext: '.gz',
       }),
+      imagetools(),
+      critical({
+        criticalBase: 'dist/',
+        criticalUrl: '',
+        criticalPages: [
+          { uri: '', template: 'index' }
+        ],
+        criticalConfig: {},
+      }),
     ],
     build: {
       cssMinify: "lightningcss",
@@ -60,9 +72,18 @@ export default defineConfig({
         }
       },
       staticDir: "/dist/_astro/",  // Corrección de la propiedad
+      postcss: {
+        plugins: [
+          purgecss({
+            content: ['./src/**/*.astro', './src/**/*.html'],
+            defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
+          }),
+        ],
+      },
     },
     ssr: {
       noExternal: ["path-to-regexp"],
     },
   },
-});//optz código 2
+});
+//optimize v3 tests
