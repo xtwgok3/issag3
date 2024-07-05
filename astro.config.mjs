@@ -7,6 +7,11 @@ import viteCompression from "vite-plugin-compression";
 
 // https://astro.build/config
 export default defineConfig({
+  build: {
+    inlineStylesheets: "always",
+  },
+  compressHTML: true,
+  prefetch: true,
   integrations: [tailwind(), sitemap()],
   adapter: cloudflare(),
   output: "hybrid",
@@ -60,4 +65,4 @@ export default defineConfig({
       noExternal: ["path-to-regexp"],
     },
   },
-});// código uno test optimizacion
+});//optz código 2
