@@ -20,23 +20,20 @@ const { title, description } = Astro.props
 
 		<link rel="icon" href="/favicon.png" sizes="32x32" />
 		<link rel="apple-touch-icon" href="/favicon.png" />
-		<link rel="canonical" href="" />
+		<link rel="canonical" href="https://issag3.pages.dev/" />
 		<meta name="viewport" content="width=device-width" />
 
-		<meta name="keywords" content="GYM" />
+		<meta name="keywords" content="ISSA POWER GYM, GYM, ISSA GYM, gimnasio, entrenar" />
+
+		<link rel="preload" href="/_astro/jost-latin-wght-normal.CfFW3YMY.woff2" as="font" type="font/woff2" crossorigin="">
+		<link rel="preload" href="/_astro/jost-latin-ext-wght-normal.B4kqP43q.woff2" as="font" type="font/woff2" crossorigin="">
+		<link rel="preload" href="/_astro/jost-cyrillic-wght-normal.B0_vFdaS.woff2" as="font" type="font/woff2" crossorigin="">
 
 		<meta name="robots" content="index, follow" />
 		<meta name="googlebot" content="index, follow" />
 
 		<script is:inline>
-			window.getThemePreference = () => {
-				const localItem = typeof localStorage !== "undefined" && localStorage.getItem("theme")
-				if (localItem) return localItem
-				return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
-			}
-
-			const isDark = window.getThemePreference() === "dark"
-			document.documentElement.classList.toggle("dark", isDark)
+			window.getThemePreference=()=>{const e="undefined"!=typeof localStorage&&localStorage.getItem("theme");return e||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")};const e="dark"===window.getThemePreference();document.documentElement.classList.toggle("dark",e);
 		</script>
 	</head>
 
