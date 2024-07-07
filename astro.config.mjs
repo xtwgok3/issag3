@@ -62,10 +62,12 @@ export default defineConfig({
       viteCompression({
         algorithm: 'brotliCompress',
         ext: '.br',
+        filter: /\.(js|mjs|ts|mts)$|\.woff2$/,
       }),
       viteCompression({
         algorithm: 'gzip',
         ext: '.gz',
+        filter: /\.(js|mjs|ts|mts)$|\.woff2$/,
       }),
       imagetools(),
       critical({
