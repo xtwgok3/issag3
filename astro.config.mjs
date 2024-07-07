@@ -20,6 +20,7 @@ export default defineConfig({
     routes: [
       '/',
       '/routines/index',
+      '/favicon.png',
       '/routines/0',
       '/routines/1',
       '/routines/2',
@@ -74,6 +75,7 @@ export default defineConfig({
           { uri: '', template: 'index' },
           { uri: 'routines/index', template: 'routines/index' },
           { uri: 'routines/0', template: 'routines/0' },
+          { uri: 'favicon.png', template: 'favicon', critical: true }, 
           { uri: 'routines/1', template: 'routines/1' },
           { uri: 'routines/2', template: 'routines/2' },
           { uri: 'routines/3', template: 'routines/3' },
