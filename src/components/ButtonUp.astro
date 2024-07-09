@@ -1,0 +1,26 @@
+<div id="button-up" class="fixed bottom-2 right-2 opacity-0 transition-opacity">
+	<button
+		id="scroll-to-top"
+		aria-label="Volver al inicio de la página"
+		class="group flex size-12 cursor-pointer items-center justify-center rounded-lg border-2 border-primary bg-gray-800 text-primary hover:scale-105 hover:border-accent motion-safe:transition"
+	>
+		<svg
+			aria-label="Subir al inicio de la página"
+			stroke-width="2"
+			stroke="currentColor"
+			viewBox="0 0 24 24"
+			fill="none"
+			class="h-6 w-6 -rotate-45 group-hover:-rotate-90 group-hover:text-accent motion-safe:transition"
+		>
+			<path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linejoin="round" stroke-linecap="round"></path>
+		</svg>
+	</button>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {const button = document.getElementById("scroll-to-top");const parent = button.closest("#button-up");
+const toggleScrollToTop = () => {const scrollTop = document.documentElement.scrollTop;const show = scrollTop > 20;parent.classList.toggle("opacity-0", !show);button.classList.toggle("cursor-pointer", show);};
+window.addEventListener("scroll", () => {requestAnimationFrame(toggleScrollToTop);});
+button.addEventListener("click", (e) => {e.preventDefault();window.scrollTo({ top: 0, behavior: "smooth" });});});
+</script>
+	

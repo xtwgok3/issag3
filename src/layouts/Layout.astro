@@ -1,4 +1,5 @@
 ---
+import ButtonUp from "@/components/ButtonUp.astro"
 import SmokeBackground from "@/components/SmokeBackground.astro"
 import "@fontsource-variable/jost"
 
@@ -32,9 +33,9 @@ window.dataLayer = window.dataLayer || [];function gtag() {dataLayer.push(argume
 
 		<meta name="keywords" content="ISSA POWER GYM, GYM, ISSA GYM, gimnasio, entrenar, fitness, deporte, Termas, Termas de rio hondo, nutricion, train, training" />
 
-		<link rel="preload" href="/_astro/jost-latin-wght-normal.CfFW3YMY.woff2" as="font" type="font/woff2" crossorigin="">
-		<link rel="preload" href="/_astro/jost-latin-ext-wght-normal.B4kqP43q.woff2" as="font" type="font/woff2" crossorigin="">
-		<link rel="preload" href="/_astro/jost-cyrillic-wght-normal.B0_vFdaS.woff2" as="font" type="font/woff2" crossorigin="">
+		<link rel="preload" href="/dist/_astro/jost-latin-wght-normal.CfFW3YMY.woff2" as="font" type="font/woff2" crossorigin="">
+		<link rel="preload" href="/dist/_astro/jost-latin-ext-wght-normal.B4kqP43q.woff2" as="font" type="font/woff2" crossorigin="">
+		<link rel="preload" href="/dist/_astro/jost-cyrillic-wght-normal.B0_vFdaS.woff2" as="font" type="font/woff2" crossorigin="">
 
 		<meta name="robots" content="index, follow" />
 		<meta name="googlebot" content="index, follow" />
@@ -53,7 +54,9 @@ window.dataLayer = window.dataLayer || [];function gtag() {dataLayer.push(argume
 		<div class="mx-auto px-5 lg:px-0" style="padding: 0;">
 			<slot />
 		</div>
+		<ButtonUp />
 	</body>
+
 </html>
 
 <style is:global>
