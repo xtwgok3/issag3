@@ -76,108 +76,101 @@
 		"23": "1-Guia-basica-alimentacion-GYM.pdf",
 	}
 
-	document.addEventListener("DOMContentLoaded", function () {
-		const pdfLink = document.getElementById("menu-item-pdf") as HTMLAnchorElement
-		if (pdfLink) {
-			let currentURL = window.location.href
-			const isDesktop = window.matchMedia("(min-width: 767px)").matches
-			if (isDesktop) {
-				pdfLink.setAttribute("target", "_blank")
-			}
-
-			// Remove trailing slashes if present to normalize the URL
-			currentURL = currentURL.replace(/\/+$/, "")
-
-			const parts = currentURL.split("/")
-			const number = parts[parts.length - 1] as keyof typeof fileNames
-
-			if (fileNames[number]) {
-				pdfLink.href = baseURL + fileNames[number]
-				pdfLink.setAttribute("download", fileNames[number])
-			} else {
-				console.error(`No se encontró el archivo para el número ${number}`)
-			}
-		}
-
-		const optionsMenu = document.getElementById("options-menu")
-		const optionsMenuList = document.getElementById("options-menu-list")
-
-		if (optionsMenu && optionsMenuList) {
-			optionsMenu.addEventListener("click", () => {
-				optionsMenuList.classList.toggle("hidden")
-				optionsMenu.setAttribute(
-					"aria-expanded",
-					optionsMenuList.classList.contains("hidden") ? "false" : "true"
-				)
-
-				const rect = optionsMenu.getBoundingClientRect()
-				const windowHeight = window.innerHeight
-
-				if (rect.top > windowHeight / 2) {
-					optionsMenuList.classList.add("bottom-full")
-					optionsMenuList.classList.remove("top-full")
-				} else {
-					optionsMenuList.classList.add("top-full")
-					optionsMenuList.classList.remove("bottom-full")
-				}
-			})
-
-			window.addEventListener("click", (event) => {
-				const target = event.target
-				if (
-					!(target instanceof Node) ||
-					(!optionsMenu.contains(target) && !optionsMenuList.contains(target))
-				) {
-					optionsMenuList.classList.add("hidden")
-					optionsMenu.setAttribute("aria-expanded", "false")
-				}
-			})
-		} else {
-			console.error("No se encontró optionsMenu o optionsMenuList")
-		}
-	})
-</script>
-<!--GENERADOR PDF-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
-></script>
+	document.addEventListener('DOMContentLoaded', function() {
+        const pdfLink = document.getElementById('menu-item-pdf') as HTMLAnchorElement;
+    
+        if (pdfLink) {
+            let currentURL = window.location.href;
+    
+            const isDesktop = window.matchMedia('(min-width: 767px)').matches;
+            if (isDesktop) {
+                pdfLink.setAttribute('target', '_blank');
+            }
+            // Remove trailing slashes if present to normalize the URL
+            currentURL = currentURL.replace(/\/+$/, '');
+    
+            const parts = currentURL.split('/');
+            const number = parts[parts.length - 1] as keyof typeof fileNames;
+    
+            if (fileNames[number]) {
+                pdfLink.href = baseURL + fileNames[number];
+                pdfLink.setAttribute('download', fileNames[number]);
+            } else {
+                console.error(`No se encontró el archivo para el número ${number}`);
+            }
+        }
+    
+        const optionsMenu = document.getElementById("options-menu");
+        const optionsMenuList = document.getElementById("options-menu-list");
+    
+        if (optionsMenu && optionsMenuList) {
+            optionsMenu.addEventListener("click", () => {
+                optionsMenuList.classList.toggle("hidden");
+                optionsMenu.setAttribute("aria-expanded", optionsMenuList.classList.contains("hidden") ? "false" : "true");
+    
+                const rect = optionsMenu.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+    
+                if (rect.top > windowHeight / 2) {
+                    optionsMenuList.classList.add("bottom-full");
+                    optionsMenuList.classList.remove("top-full");
+                } else {
+                    optionsMenuList.classList.add("top-full");
+                    optionsMenuList.classList.remove("bottom-full");
+                }
+            });
+    
+            window.addEventListener("click", (event) => {
+                const target = event.target;
+                if (!(target instanceof Node) || !optionsMenu.contains(target) && !optionsMenuList.contains(target)) {
+                    optionsMenuList.classList.add("hidden");
+                    optionsMenu.setAttribute("aria-expanded", "false");
+                }
+            });
+        } else {
+            console.error("No se encontró optionsMenu o optionsMenuList");
+        }
+    });
+    
+    </script>
+<!--GENERADOR PDF--> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
 <script>
-	document.addEventListener("DOMContentLoaded", function () {
-		const button = document.getElementById("button")
-		const makepdf = document.getElementById("makepdf")
-		const asdButton = document.getElementById("asd")
-		const optionsMenuList = document.getElementById("options-menu-list")
-        const optionsMenu = document.getElementById("options-menu")
-        
-		if (button && asdButton && makepdf) {
-			button.addEventListener("click", function (event) {
-				asdButton.style.display = "none"
-				event.preventDefault() /*evita recarga página*/
-				const iframe = document.createElement("iframe")
-				/* asdButton.style.display = "none";*/ /* evita que imprima btn*/
-				iframe.style.cssText = "position: absolute; width: 0; height: 0; border: none;"
-				document.body.appendChild(iframe)
+ document.addEventListener("DOMContentLoaded", function() {
+ const button = document.getElementById("button");
+ const makepdf = document.getElementById("makepdf");
+ const asdButton = document.getElementById("asd");
+ const optionsMenuList = document.getElementById("options-menu-list");
+        if (button && asdButton && makepdf) {
+            button.addEventListener("click", function(event) {
+                asdButton.style.display = "none"; 
+                event.preventDefault();/*evita recarga página*/
+                const iframe = document.createElement('iframe');
+               /* asdButton.style.display = "none";*/ /* evita que imprima btn*/
+                iframe.style.cssText = 'position: absolute; width: 0; height: 0; border: none;';
+                document.body.appendChild(iframe);
 
-				const iframeDocument = iframe.contentWindow ? iframe.contentWindow.document : null
-				if (iframeDocument && iframe.contentWindow) {
-					iframeDocument.open()
-					iframeDocument.write(`<html><head><title>ISSA POWER GYM</title>
+                const iframeDocument = iframe.contentWindow.document;
+                if (iframeDocument && iframe.contentWindow) {
+                iframeDocument.open();
+                iframeDocument.write
+                (`<html><head><title>ISSA POWER GYM</title>
                 <style>body{font-family: Arial, sans-serif;font-weight: 700;color: #333333;padding: 23px;line-height: 1.1;padding-left: 1.25rem;}li{margin-top:2px}</style>
-                </head><body>${makepdf.innerHTML}</body></html>`)
+                </head><body>${makepdf.innerHTML}</body></html>`);
 
-					asdButton.style.display = ""
+                asdButton.style.display = "";
 
-					iframeDocument.close()
+                iframeDocument.close();
 
-					iframe.contentWindow.focus()
-					iframe.contentWindow.print()
+                iframe.contentWindow.focus();
+                iframe.contentWindow.print();
 
-					optionsMenu !== null ? (optionsMenuList && optionsMenu.setAttribute("aria-expanded", optionsMenuList.classList.contains("hidden") ? "false" : "true"),
-                    document.body.removeChild(iframe)) : null;
-
-
-				}
-			})
-		}
-	})
+                optionsMenuList.classList.toggle("hidden");
+                optionsMenu.setAttribute("aria-expanded", optionsMenuList.classList.contains("hidden") ? "false" : "true");
+                document.body.removeChild(iframe);
+                
+            }});
+        }
+    });
 </script>
