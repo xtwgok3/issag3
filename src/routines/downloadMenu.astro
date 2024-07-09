@@ -1,118 +1,183 @@
-<div class="relative inline-flex flex-col items-end text-left mt-2 mb-2" id="asd">
-    <button type="button" class="md:ml-5 inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-red-500 text-sm font-medium text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500" id="options-menu" aria-expanded="false" aria-haspopup="true">
-        DESCARGAR
-        <svg class="ml-2 -mr-1 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-        </svg>
-    </button>
-    <div class="origin-top-right absolute top-full mb-2 ml-5 w-39 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-10 hidden" role="menu" aria-orientation="vertical" aria-labelledby="options-menu" id="options-menu-list" tabindex="-1">
-        <div class="py-1" role="none">
-            <a href="" class="text-gray-700 block px-4 py-2 text-sm" download role="menuitem" tabindex="-1" id="menu-item-pdf">
-                PDF - Archivo
-            </a>
-            <a href=""  class="text-gray-700 block px-4 py-2 text-sm" id="button" tabindex="-1" id="menu-item-pdf">
-                PDF 2 - RAW
-            </a>
-        </div>
-    </div>
+<div class="relative mb-2 mt-2 inline-flex flex-col items-end text-left" id="asd">
+	<button
+		type="button"
+		class="inline-flex justify-center rounded-md border border-gray-300 bg-red-500 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 md:ml-5"
+		id="options-menu"
+		aria-expanded="false"
+		aria-haspopup="true"
+	>
+		DESCARGAR
+		<svg
+			class="-mr-1 ml-2 h-5 w-5"
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 20 20"
+			fill="currentColor"
+			aria-hidden="true"
+		>
+			<path
+				fill-rule="evenodd"
+				d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+				clip-rule="evenodd"></path>
+		</svg>
+	</button>
+	<div
+		class="w-39 absolute top-full z-10 mb-2 ml-5 hidden origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+		role="menu"
+		aria-orientation="vertical"
+		aria-labelledby="options-menu"
+		id="options-menu-list"
+		tabindex="-1"
+	>
+		<div class="py-1" role="none">
+			<a
+				href=""
+				class="block px-4 py-2 text-sm text-gray-700"
+				download
+				role="menuitem"
+				tabindex="-1"
+				id="menu-item-pdf"
+			>
+				PDF - Archivo
+			</a>
+			<a
+				href=""
+				class="block px-4 py-2 text-sm text-gray-700"
+				id="button"
+				tabindex="-1"
+				id="menu-item-pdf"
+			>
+				PDF 2 - RAW
+			</a>
+		</div>
+	</div>
 </div>
-<style>@media (max-width: 766px) {#asd {margin-left: 0.5rem;}}</style>
+<style>
+	@media (max-width: 766px) {
+		#asd {
+			margin-left: 0.5rem;
+		}
+	}
+</style>
 <script>
-const baseURL = 'https://xtwgok3.github.io/files/PDF/';
-// Definir los nombres de los archivos PDF
-    const fileNames = {
-        '0': '0-Rutinas%20para%20iniciados.pdf',
-        '1': '1-Rutina%20adaptada%20para%20bajar%20de%20peso.pdf',
-        '2': '2-RUTINA%20ADAPTADA%20CICLISMO.pdf',
-        '3': '3-Rutina%20de%205%20dias%20hombres.pdf',
-        '4': '4-Rutina%20mujeres%20nueva%205%20dias.pdf',
-        '5': '5-RUTINA%20FRECUENCIA%20X%203%20DE%20PIERNAS%20Nicole.pdf',
-        '6': '6-Rutina%20Varones%20Ulises.pdf',
-        '7': '7-HEAVY%20DUTY.pdf',
-        '8': '8-Rutina%20mujeres%20biseries.pdf',
+	const baseURL = "https://xtwgok3.github.io/files/PDF/"
+	// Definir los nombres de los archivos PDF
+	const fileNames = {
+		"0": "0-Rutinas%20para%20iniciados.pdf",
+		"1": "1-Rutina%20adaptada%20para%20bajar%20de%20peso.pdf",
+		"2": "2-RUTINA%20ADAPTADA%20CICLISMO.pdf",
+		"3": "3-Rutina%20de%205%20dias%20hombres.pdf",
+		"4": "4-Rutina%20mujeres%20nueva%205%20dias.pdf",
+		"5": "5-RUTINA%20FRECUENCIA%20X%203%20DE%20PIERNAS%20Nicole.pdf",
+		"6": "6-Rutina%20Varones%20Ulises.pdf",
+		"7": "7-HEAVY%20DUTY.pdf",
+		"8": "8-Rutina%20mujeres%20biseries.pdf",
 
-        '22': '0-Guia-basica-alimentacion-GYM.pdf',
-        '23': '1-Guia-basica-alimentacion-GYM.pdf'
-    };
-    
-    document.addEventListener('DOMContentLoaded', function() {
-        const pdfLink = document.getElementById('menu-item-pdf') as HTMLAnchorElement;
-        if (pdfLink) {
-            let currentURL = window.location.href;
-            const isDesktop = window.matchMedia('(min-width: 767px)').matches;
-            if (isDesktop) {pdfLink.setAttribute('target', '_blank');}
+		"22": "0-Guia-basica-alimentacion-GYM.pdf",
+		"23": "1-Guia-basica-alimentacion-GYM.pdf",
+	}
 
-            // Remove trailing slashes if present to normalize the URL
-            currentURL = currentURL.replace(/\/+$/, '');
+	document.addEventListener("DOMContentLoaded", function () {
+		const pdfLink = document.getElementById("menu-item-pdf") as HTMLAnchorElement
+		if (pdfLink) {
+			let currentURL = window.location.href
+			const isDesktop = window.matchMedia("(min-width: 767px)").matches
+			if (isDesktop) {
+				pdfLink.setAttribute("target", "_blank")
+			}
 
-            const parts = currentURL.split('/');
-            const number = parts[parts.length - 1] as keyof typeof fileNames;
+			// Remove trailing slashes if present to normalize the URL
+			currentURL = currentURL.replace(/\/+$/, "")
 
-            if (fileNames[number]) {pdfLink.href = baseURL + fileNames[number];pdfLink.setAttribute('download', fileNames[number]);}
-            else {console.error(`No se encontró el archivo para el número ${number}`);}
-        }
-    
-        const optionsMenu = document.getElementById("options-menu");
-        const optionsMenuList = document.getElementById("options-menu-list");
-    
-        if (optionsMenu && optionsMenuList) {
-            optionsMenu.addEventListener("click", () => {
-                optionsMenuList.classList.toggle("hidden");
-                optionsMenu.setAttribute("aria-expanded", optionsMenuList.classList.contains("hidden") ? "false" : "true");
-    
-                const rect = optionsMenu.getBoundingClientRect();
-                const windowHeight = window.innerHeight;
-    
-                if (rect.top > windowHeight / 2) {optionsMenuList.classList.add("bottom-full");optionsMenuList.classList.remove("top-full");}
-                else {optionsMenuList.classList.add("top-full");optionsMenuList.classList.remove("bottom-full");}
-            });
-    
-            window.addEventListener("click", (event) => {
-                const target = event.target;
-                if (!(target instanceof Node) || !optionsMenu.contains(target) && !optionsMenuList.contains(target))
-                {optionsMenuList.classList.add("hidden");optionsMenu.setAttribute("aria-expanded", "false");}
-            });}
-            else {console.error("No se encontró optionsMenu o optionsMenuList");}
- });
+			const parts = currentURL.split("/")
+			const number = parts[parts.length - 1] as keyof typeof fileNames
+
+			if (fileNames[number]) {
+				pdfLink.href = baseURL + fileNames[number]
+				pdfLink.setAttribute("download", fileNames[number])
+			} else {
+				console.error(`No se encontró el archivo para el número ${number}`)
+			}
+		}
+
+		const optionsMenu = document.getElementById("options-menu")
+		const optionsMenuList = document.getElementById("options-menu-list")
+
+		if (optionsMenu && optionsMenuList) {
+			optionsMenu.addEventListener("click", () => {
+				optionsMenuList.classList.toggle("hidden")
+				optionsMenu.setAttribute(
+					"aria-expanded",
+					optionsMenuList.classList.contains("hidden") ? "false" : "true"
+				)
+
+				const rect = optionsMenu.getBoundingClientRect()
+				const windowHeight = window.innerHeight
+
+				if (rect.top > windowHeight / 2) {
+					optionsMenuList.classList.add("bottom-full")
+					optionsMenuList.classList.remove("top-full")
+				} else {
+					optionsMenuList.classList.add("top-full")
+					optionsMenuList.classList.remove("bottom-full")
+				}
+			})
+
+			window.addEventListener("click", (event) => {
+				const target = event.target
+				if (
+					!(target instanceof Node) ||
+					(!optionsMenu.contains(target) && !optionsMenuList.contains(target))
+				) {
+					optionsMenuList.classList.add("hidden")
+					optionsMenu.setAttribute("aria-expanded", "false")
+				}
+			})
+		} else {
+			console.error("No se encontró optionsMenu o optionsMenuList")
+		}
+	})
 </script>
-<!--GENERADOR PDF--> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<!--GENERADOR PDF-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+></script>
 
 <script>
- document.addEventListener("DOMContentLoaded", function() {
- const button = document.getElementById("button");
- const makepdf = document.getElementById("makepdf");
- const asdButton = document.getElementById("asd");
- const optionsMenuList = document.getElementById("options-menu-list");
-        if (button && asdButton && makepdf) {
-            button.addEventListener("click", function(event) {
-                asdButton.style.display = "none"; 
-                event.preventDefault();/*evita recarga página*/
-                const iframe = document.createElement('iframe');
-               /* asdButton.style.display = "none";*/ /* evita que imprima btn*/
-                iframe.style.cssText = 'position: absolute; width: 0; height: 0; border: none;';
-                document.body.appendChild(iframe);
+	document.addEventListener("DOMContentLoaded", function () {
+		const button = document.getElementById("button")
+		const makepdf = document.getElementById("makepdf")
+		const asdButton = document.getElementById("asd")
+		const optionsMenuList = document.getElementById("options-menu-list")
+        const optionsMenu = document.getElementById("options-menu")
+        
+		if (button && asdButton && makepdf) {
+			button.addEventListener("click", function (event) {
+				asdButton.style.display = "none"
+				event.preventDefault() /*evita recarga página*/
+				const iframe = document.createElement("iframe")
+				/* asdButton.style.display = "none";*/ /* evita que imprima btn*/
+				iframe.style.cssText = "position: absolute; width: 0; height: 0; border: none;"
+				document.body.appendChild(iframe)
 
-                const iframeDocument = iframe.contentWindow.document;
-                if (iframeDocument && iframe.contentWindow) {
-                iframeDocument.open();
-                iframeDocument.write
-                (`<html><head><title>ISSA POWER GYM</title>
+				const iframeDocument = iframe.contentWindow ? iframe.contentWindow.document : null
+				if (iframeDocument && iframe.contentWindow) {
+					iframeDocument.open()
+					iframeDocument.write(`<html><head><title>ISSA POWER GYM</title>
                 <style>body{font-family: Arial, sans-serif;font-weight: 700;color: #333333;padding: 23px;line-height: 1.1;padding-left: 1.25rem;}li{margin-top:2px}</style>
-                </head><body>${makepdf.innerHTML}</body></html>`);
+                </head><body>${makepdf.innerHTML}</body></html>`)
 
-                asdButton.style.display = "";
+					asdButton.style.display = ""
 
-                iframeDocument.close();
+					iframeDocument.close()
 
-                iframe.contentWindow.focus();
-                iframe.contentWindow.print();
+					iframe.contentWindow.focus()
+					iframe.contentWindow.print()
 
-                optionsMenuList.classList.toggle("hidden");
-                optionsMenu.setAttribute("aria-expanded", optionsMenuList.classList.contains("hidden") ? "false" : "true");
-                document.body.removeChild(iframe);
-                
-            }});
-        }
-    });
+					optionsMenu !== null ? (optionsMenuList && optionsMenu.setAttribute("aria-expanded", optionsMenuList.classList.contains("hidden") ? "false" : "true"),
+                    document.body.removeChild(iframe)) : null;
+
+
+				}
+			})
+		}
+	})
 </script>
