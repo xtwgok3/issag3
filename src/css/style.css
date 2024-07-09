@@ -4,9 +4,3 @@ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.1); /* Segu
 margin: 20px auto;max-width: 800px;user-select: none;}
 
 @media (max-width: 766px) {section {padding: 22px;}}
-
-@media print {
-    html, body {
-       display: none;
-    }
-}
