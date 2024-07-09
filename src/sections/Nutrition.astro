@@ -1,33 +1,16 @@
 <section class="container"> 
-    <h1>Rutinas ISSA GYM</h1>
-    <a href="/routines/0"><div class="rectangle bg-gray-300 text-center text-sm md:text-base lg:text-lg xl:text-xl" id="rectangle1">
-        Rutinas para iniciados.
+    
+    <h1 id="guia" style="display:flex;justify-content: center;cursor: pointer;"><img src="../assets/320header.png"></h1>
+
+    <a href="/nutrition-plans/22"><div class="rectangle bg-gray-300 text-center text-sm md:text-base lg:text-lg xl:text-xl" id="rectangle1">
+        Guia para bajar de peso.
     </div></a>
-    <a href="/routines/1"><div class="rectangle bg-gray-300 text-center text-sm  md:text-base lg:text-lg xl:text-xl" id="rectangle1">
-        Rutina adaptada para bajar de peso.
+    <a href="/nutrition-plans/23"><div class="rectangle bg-gray-300 text-center text-sm  md:text-base lg:text-lg xl:text-xl" id="rectangle1">
+        Guía Aumentar masa múscular.
     </div></a>
-    <a href="/routines/2"><div class="rectangle bg-gray-300 text-center text-sm md:text-base lg:text-lg xl:text-xl" id="rectangle1">
-        Rutina adaptada Ciclismo.
-    </div></a>
-    <a href="/routines/3"><div class="rectangle bg-gray-300 text-center text-sm md:text-base lg:text-lg xl:text-xl" id="rectangle1">
-        Rutina de 5 dias hombres.
-    </div></a>
-    <a href="/routines/4"><div class="rectangle bg-gray-300 text-center text-sm md:text-base lg:text-lg xl:text-xl" id="rectangle1">
-        Rutina mujeres nueva 5 dias.
-    </div></a>
-    <a href="/routines/5"><div class="rectangle bg-gray-300 text-center text-sm md:text-base lg:text-lg xl:text-xl" id="rectangle1">
-        Rutina frecuencia x3 piernas Nicole.
-    </div></a>
-    <a href="/routines/6"><div class="rectangle bg-gray-300 text-center text-sm md:text-base lg:text-lg xl:text-xl" id="rectangle1">
-        Rutina Varones Ulises.
-    </div></a>
-    <a href="/routines/7"><div class="rectangle bg-gray-300 text-center text-sm md:text-base lg:text-lg xl:text-xl" id="rectangle1">
-        HEAVY DUTY.
-    </div></a>
-    <a href="/routines/8"><div class="rectangle bg-gray-300 text-center text-sm md:text-base lg:text-lg xl:text-xl" id="rectangle1">
-        Rutina mujeres biseries.
-    </div></a>
-<h1 class="tittle2 rounded-[6px]">ACCEDE A LA GUÍA DE ALIMENTACIÓN</h1><!--div id="popup" class="popup">Esta función estará disponible próximamente.</div-->
+    <h1 class="tittle2 rounded-[6px]">Rutinas ISSA GYM</h1><!--div id="popup" class="popup">Esta función estará disponible próximamente.</div-->
+    <img class="rounded-[7px]" src="../assets/foot.png">
+
 </section>
 
 <style>
@@ -56,7 +39,7 @@ transform: scale(1.05);color: #000000;cursor: pointer;}
 }
 
 @media only screen and (min-width: 601px) {/*tablet / pc */
-.container {height: 390px!important;width: 765px!important;gap: 10px!important;max-width: 765px!important;}
+.container {height: 531px!important;width: 765px!important;gap: 10px!important;max-width: 765px!important;}
 }
 
 h1{box-sizing: border-box;width: 85%;height: auto;font-family: 'Inter';font-style: normal;font-weight: 700;font-size: 23px;
@@ -71,8 +54,8 @@ font-size: 20px;color: #a52a2a;opacity: 0;
 animation: fadeInOut 3s forwards;}
 @keyframes fadeInOut {0% {opacity: 0;}50% {opacity: 1;}100% {opacity: 0;}}
 </style>
-<script>
-document.querySelector('.tittle2')?.addEventListener('click', () => {window.location.href = '/nutrition-plans'; /* Redirige al enlace deseado */});</script>
+<script>document.querySelector('.tittle2')?.addEventListener('click', () => {window.location.href = '/routines'; /* Redirige al enlace deseado */});</script>
+<script>document.querySelector('#guia')?.addEventListener('click', () => {window.location.href = '/nutrition-plans';});</script>
 
 <!--script>
  document.querySelector('.tittle2')?.addEventListener('click', () => {
