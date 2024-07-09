@@ -13,6 +13,17 @@ const { title, description } = Astro.props
 <!doctype html>
 <html lang="es">
 	<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QDMX84RNLC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QDMX84RNLC');
+</script>
+
+
 		<title>{title}</title>
 
 		<meta charset="UTF-8" />
@@ -33,6 +44,8 @@ const { title, description } = Astro.props
 		<meta name="robots" content="index, follow" />
 		<meta name="googlebot" content="index, follow" />
 
+		
+		
 		<script is:inline>
 			window.getThemePreference=()=>{const e="undefined"!=typeof localStorage&&localStorage.getItem("theme");return e||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")};const e="dark"===window.getThemePreference();document.documentElement.classList.toggle("dark",e);
 		</script>
