@@ -110,13 +110,26 @@
 <style>
     /* Establecer que todos los logos sean visibles por defecto */
 /*#logo1, #logo2, #logo3 {display: block;}*/
-    /* Mostrar logo 1 en pantallas de 441px o más */
-@media only screen and (min-width: 441px) {#logo1 {display: block;}#logo2, #logo3 {display: none!important;}}
-    /* Mostrar logo 2 en pantallas con menos de 320px hasta 349px */
-@media only screen and (max-width: 349px) {#logo1, #logo3 {display: none!important;} #logo2 {display: block;}}
-    /* Mostrar logo 3 en pantallas entre 350px y 440px */
-@media only screen and (min-width: 350px) and (max-width: 440px) {#logo1, #logo2 {display: none!important;}
-#logo3 {display: block;}}
+  
+
+/* Show logo 1 on screens wider than 441px (standard screens) */
+@media only screen and (min-width: 441px) {
+    #logo1 { display: block; }
+    #logo2, #logo3 { display: none !important; }
+}
+
+/* Show logo 2 on screens between 320px and 349px (potentially for smaller devices or specific TV resolutions) */
+@media only screen and (max-width: 349px) {
+    #logo1, #logo3 { display: none !important; }
+    #logo2 { display: block; }
+}
+
+/* Show logo 3 on screens between 350px and 440px (adjust to fit TV resolutions if needed) */
+@media only screen and (min-width: 350px) and (max-width: 440px) {
+    #logo1, #logo2 { display: none !important; }
+    #logo3 { display: block; }
+}
+
 </style>
 
 
