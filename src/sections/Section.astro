@@ -27,7 +27,7 @@
     <a href="/routines/8"><div class="rectangle bg-gray-300 text-center text-sm md:text-base lg:text-lg xl:text-xl" id="rectangle1">
         Rutina mujeres biseries.
     </div></a>
-<h1 class="tittle2 rounded-[6px]" onclick="redirectToNutritionPlans()">ACCEDE A LA GUÍA DE ALIMENTACIÓN</h1><!--div id="popup" class="popup">Esta función estará disponible próximamente.</div-->
+<h1 class="tittle2 rounded-[6px]" id="nutritionLink">ACCEDE A LA GUÍA DE ALIMENTACIÓN</h1><!--div id="popup" class="popup">Esta función estará disponible próximamente.</div-->
 </section>
 
 <style>
@@ -72,9 +72,10 @@ animation: fadeInOut 3s forwards;}
 @keyframes fadeInOut {0% {opacity: 0;}50% {opacity: 1;}100% {opacity: 0;}}*/
 </style>
 <script>
-function redirectToNutritionPlans() {
-    window.location.href = '/nutrition-plans'; // Redirige al enlace deseado
-}</script>
+    document.querySelector('#nutritionLink')?.addEventListener('click', () => {
+        window.location.href = '/nutrition-plans'; // Redirige al enlace deseado
+    });
+</script>
 
 <!--script>
  document.querySelector('.tittle2')?.addEventListener('click', () => {
