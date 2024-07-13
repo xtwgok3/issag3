@@ -1,7 +1,7 @@
 <section class="container"> 
     
-    <h1 id="guia" style="display:flex;justify-content: center;cursor: pointer;"><img src="../assets/320header.png"></h1>
-
+  
+  <h1 id="guia" style="display:flex;justify-content: center;cursor: pointer;"><a href="/nutrition-plans"><img src="../assets/320header.png"></a></h1>
     <a href="/nutrition-plans/22"><div class="rectangle bg-gray-300 text-center text-sm md:text-base lg:text-lg xl:text-xl" id="rectangle1">
         Guia para bajar de peso.
     </div></a>
@@ -55,7 +55,7 @@ animation: fadeInOut 3s forwards;}
 @keyframes fadeInOut {0% {opacity: 0;}50% {opacity: 1;}100% {opacity: 0;}}
 </style>
 <script>document.querySelector('.tittle2')?.addEventListener('click', () => {window.location.href = '/routines'; /* Redirige al enlace deseado */});</script>
-<!--script>
+<script>
    // Función para redireccionar a /nutrition-plans
  function redirectToNutritionPlans() {
  window.location.href = '/nutrition-plans';}
@@ -63,30 +63,6 @@ animation: fadeInOut 3s forwards;}
     // Seleccionar todos los elementos con clase guide y agregar evento click a cada uno
   document.querySelectorAll('#guia, #guia2, .guide').forEach(element => {
   element.addEventListener('click', redirectToNutritionPlans);   });
-</script-->
-
-<script>
-  // Función para redireccionar a /nutrition-plans
-  function redirectToNutritionPlans() {
-      window.location.href = '/nutrition-plans';
-  }
-
-  // Seleccionar elementos por ID y asignar evento click
-  var guia1 = document.getElementById('guia');
-  if (guia1) {
-      guia1.addEventListener('click', redirectToNutritionPlans);
-  }
-
-  var guia2 = document.getElementById('guia2');
-  if (guia2) {
-      guia2.addEventListener('click', redirectToNutritionPlans);
-  }
-
-  // Seleccionar elementos por clase y asignar evento click
-  var guideElements = document.getElementsByClassName('guide');
-  for (var i = 0; i < guideElements.length; i++) {
-      guideElements[i].addEventListener('click', redirectToNutritionPlans);
-  }
 </script>
 
 <!--script>
